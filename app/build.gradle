@@ -3,6 +3,10 @@ plugins {
     id 'application'
 }
 
+run {
+    standardInput = System.in
+}
+
 compileJava {
     options.release = 17
 }
