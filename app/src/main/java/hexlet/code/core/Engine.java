@@ -1,0 +1,40 @@
+package hexlet.code.core;
+
+import hexlet.code.Cli;
+import java.util.Scanner;
+
+public final class Engine {
+
+    public static String getUserAnswer(String text) {
+
+        var input = new Scanner(System.in);
+        System.out.print(text);
+
+        return input.nextLine();
+    }
+    public Engine(Logic temp) {
+        this.game = temp;
+    }
+
+    private final Logic game;
+
+    public void launchGame() {
+//        String tempAnswer;
+        Cli.greeting();
+        String clientName = Cli.getName();
+        System.out.println();
+        int rounds = 3;
+        for (var i = 0; i < rounds; i++) {
+            System.out.println("Question: " + game.getRoundQuestion());
+            var tempAnswer = getUserAnswer("Your answer: ");
+            if (tempAnswer.equals(game.getRoundAnswer())) {
+                System.out.println("Correct!");
+            } else {
+                System.out.println(tempAnswer + " is wrong answer ;(. Correct answer was " + game.getRoundAnswer() + '.');
+                System.out.println("Let's try again, " + clientName + '!');
+                break;
+            }
+        }
+        System.out.println("Congratulations, " + clientName + '!');
+    }
+}
