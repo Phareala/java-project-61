@@ -22,7 +22,7 @@ public final class Engine {
 //        String tempAnswer;
         Cli.greeting();
         String clientName = Cli.getName();
-        System.out.println();
+        System.out.println(game.getGameDescription());
         int rounds = 3;
         for (var i = 0; i < rounds; i++) {
             System.out.println("Question: " + game.getRoundQuestion());
@@ -32,7 +32,7 @@ public final class Engine {
             } else {
                 System.out.println(tempAnswer + " is wrong answer ;(. Correct answer was " + game.getRoundAnswer() + '.');
                 System.out.println("Let's try again, " + clientName + '!');
-                break;
+                return;
             }
         }
         System.out.println("Congratulations, " + clientName + '!');
