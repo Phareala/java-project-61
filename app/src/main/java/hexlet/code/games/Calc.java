@@ -23,10 +23,18 @@ public class Calc implements Logic {
 
         var operand = operands[randomOperand];
         switch (operand) {
-            case '+' -> roundAnswer = number1 + number2;
-            case '-' -> roundAnswer = number1 - number2;
-            case '*' -> roundAnswer = number1 * number2;
-            default -> System.out.println("ERROR");
+            case '+' -> {
+                roundAnswer = number1 + number2;
+            }
+            case '-' -> {
+                roundAnswer = number1 - number2;
+            }
+            case '*' -> {
+                roundAnswer = number1 * number2;
+            }
+            default -> {
+                System.out.println("ERROR");
+            }
         }
         result = Integer.toString(roundAnswer);
         return number1 + " " + operand + " " + number2;
