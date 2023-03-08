@@ -10,13 +10,14 @@ public class GCD implements Logic {
     private int roundAnswer;
     private String result;
 
+    int maxValue = 100;
+
     public String getGameDescription() {
         return "Find the greatest common divisor of given numbers.";
     }
 
     public String getRoundQuestion() {
         Random random = new Random();
-        int maxValue = 100;
         var number1 = random.nextInt(maxValue);
         var number2 = random.nextInt(maxValue);
         roundAnswer = Engine.gcd(number1, number2);
