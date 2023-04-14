@@ -8,31 +8,28 @@ import static hexlet.code.core.Engine.randomNumber;
 
 public class Calc {
 
-    public String getGameDescription() {
-        return "What is the result of the expression?";
+    private static final char[] OPERANDS = {'+', '-', '*'};
+    private static final String GAME_RULES = "What is the result of the expression?";
+    private static final int QUESTIONS_NUMBER = 3;
+    private static final int QUESTION_ID = 0;
+    private static final int ANSWER_ID = 1;
+
+    public static void initCalcGame() {
+        String[][] questions = genQuestions();
+        Engine.gameInit(GAME_RULES, questions);
     }
 
     private static String[][] genQuestions() {
         Random random = new Random();
-        int maxValue = 50;
-        var number1 = random.nextInt(maxValue);
-        var number2 = random.nextInt(maxValue);
-        var randomOperand = random.nextInt(operands.length);
-
-        var operand = operands[randomOperand];
-        switch (operand) {
-            case '+' -> {
-                roundAnswer = number1 + number2;
-            }
-            case '-' -> {
-                roundAnswer = number1 - number2;
-            }
-            case '*' -> {
-                roundAnswer = number1 * number2;
-            }
-            default -> {
-                System.out.println("ERROR");
-            }
+        String[][] question = new String[QUESTIONS_NUMBER][2];
+        for (int i = 0; i < QUESTIONS_NUMBER; i++) {
+            var randomOperand = random.nextInt(OPERANDS.length);
+            int tempRandomNumber1 = randomNumber();
+            int tempRandomNumber2 = randomNumber();
+            var operand = OPERANDS[randomOperand];
+//            question[i][questionID] = Integer.toString(tempRandomNumber1 + operand + tempRandomNumber2);
+            question[i][QUESTION_ID] = String.format("%d %s %d", tempRandomNumber1,operand, tempRandomNumber2);
+            question[i][ANSWER_ID] = Integer.toString(getAnswer(tempRandomNumber1, operand, tempRandomNumber2));
         }
         return question;
     }
