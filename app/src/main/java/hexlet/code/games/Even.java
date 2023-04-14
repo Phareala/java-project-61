@@ -1,53 +1,31 @@
 package hexlet.code.games;
 
-import hexlet.code.core.Logic;
+import hexlet.code.core.Engine;
 
-import java.util.Random;
+import static hexlet.code.core.Engine.randomNumber;
 
-//public class Even {
-//    public static void evenGame() {
-//        Scanner scanner = new Scanner(System.in);
-//        Cli.greeting();
-//        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-//        var i = 0;
-//        while (i < 3) {
-//            String answer;
-//            int number = (int) (Math.random() * 10);
-//            answer = (number % 2 == 0) ? "yes" : "no";
-//            System.out.println("Question: " + number);
-//            System.out.print("Your answer: ");
-//            String cliAnswer = scanner.next();
-//            if (cliAnswer.equals(answer)) {
-//                System.out.println("Correct!");
-//                i++;
-//            } else {
-//                System.out.println("'" + cliAnswer + "'" + " is wrong answer ;(. Correct answer was " + "'" + answer + "'.");
-//                System.out.println("Let's try again, " + Cli.getName() + '!');
-//                break;
-//            }
-//            System.out.println("Congratulations, " + Cli.getName() + '!');
-//        }
-//    }
-//}
+public class Even {
+    private static final String gameRules = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private static final int questionsNumber = 3;
+    private static final int questionID = 0;
+    private static final int answerID = 1;
 
-public class Even implements Logic {
-
-    private String answer;
-
-    public String getGameDescription() {
-        return "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    public static void initEvenGame() {
+        String[][] questions = genQuestions();
+        Engine.gameInit(gameRules, questions);
     }
 
-    public String getRoundQuestion() {
-        Random random = new Random();
-        int maxValue = 100;
-        int number = random.nextInt(maxValue);
-        String result = Integer.toString(number);
-        answer = (number % 2 == 0) ? "yes" : "no";
-        return result;
+    private static String[][] genQuestions() {
+        String[][] question = new String[questionsNumber][2];
+        for (int i = 0; i < questionsNumber; i++) {
+            int tempRandomNumber = randomNumber();
+            question[i][questionID] = Integer.toString(tempRandomNumber);
+            question[i][answerID] = isEven(tempRandomNumber);
+        }
+        return question;
     }
 
-    public String getRoundAnswer() {
-        return answer;
+    private static String isEven(int number) {
+        return number % 2 == 0 ? "yes" : "no";
     }
 }

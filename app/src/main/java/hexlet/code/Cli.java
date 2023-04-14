@@ -12,7 +12,4 @@ public class Cli {
         System.out.println("Hello, " + clientName + '!');
         userName = clientName;
     }
-    public static String getName() {
-        return userName;
-    }
 }

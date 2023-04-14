@@ -1,6 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.core.Engine;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
 import hexlet.code.games.Calc;
@@ -20,27 +19,12 @@ public class App {
         int choice = scanner.nextInt();
         switch (choice) {
             case (1) -> Cli.greeting();
-            case (2) -> {
-                var game = new Even();
-                new Engine(game).launchGame();
-            }
-            case (3) -> {
-                var game = new Calc();
-                new Engine(game).launchGame();
-            }
-            case (4) -> {
-                var game = new GCD();
-                new Engine(game).launchGame();
-            }
-            case (5) -> {
-                var game = new Progression();
-                new Engine(game).launchGame();
-            }
-            case (6) -> {
-                var game = new Prime();
-                new Engine(game).launchGame();
-            }
-            default -> System.out.println("Goodbye");
+            case (2) -> Even.initEvenGame();
+            case (3) -> Calc.initCalcGame();
+            case (4) -> GCD.initGCDGame();
+            case (5) -> Progression.initProgressionGame();
+            case (6) -> Prime.initPrimeGame();
+            default -> System.out.println("Goodbye!");
 
         }
     }

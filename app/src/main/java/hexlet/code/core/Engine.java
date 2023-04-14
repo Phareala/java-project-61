@@ -1,59 +1,47 @@
 package hexlet.code.core;
 
-import hexlet.code.Cli;
+import java.util.Random;
 import java.util.Scanner;
 
-public final class Engine {
+public class Engine {
 
-    public static String getUserAnswer(String text) {
+    private static final int maxRandomNumber = 100;
+    private static final int questionID = 0;
+    private static final int answerID = 1;
+    private static String clientName;
+    private static final Scanner scanner = new Scanner(System.in);
 
-        var input = new Scanner(System.in);
-        System.out.print(text);
-
-        return input.nextLine();
+    public static void greeting() {
+        System.out.println("Welcome to the Brain Games!");
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("May I have your name? ");
+        clientName = scanner.next();
+        System.out.println("Hello, " + clientName + '!');
     }
 
-    public Engine(Logic temp) {
-        this.game = temp;
-    }
-    private final Logic game;
 
-    public void launchGame() {
-//        String tempAnswer;
-        Cli.greeting();
-        String clientName = Cli.getName();
-        System.out.println(game.getGameDescription());
-        int rounds = 3;
-        for (var i = 0; i < rounds; i++) {
-            System.out.println("Question: " + game.getRoundQuestion());
-            var tempAnswer = getUserAnswer("Your answer: ");
-            if (tempAnswer.equals(game.getRoundAnswer())) {
+    public static void gameInit (String gameRules, String[][] questions) {
+        greeting();
+        System.out.println(gameRules);
+        for (String[] question : questions) {
+            System.out.println("Question: " + question[questionID]);
+            System.out.print("Your answer: ");
+            String answer = scanner.next();
+
+            if (answer.equals(question[answerID])) {
                 System.out.println("Correct!");
             } else {
-                System.out.println('\'' + tempAnswer + "' is wrong answer ;(. Correct answer was '" + game.getRoundAnswer() + "'.");
+                System.out.println(answer + " is wrong answer ;(. Correct answer was " + '\'' + question[answerID] + '\'');
                 System.out.println("Let's try again, " + clientName + '!');
                 return;
             }
         }
-        System.out.println("Congratulations, " + clientName + '!');
+        System.out.printf("Congratulations, " + clientName + '!');
     }
 
-    public static int gcd(int number1, int number2) {
-        int temp = Math.max(number1, number2);
-        for (int i = temp; i > 0; i--) {
-            if (number1 % i == 0 && number2 % i == 0) {
-                return i;
-            }
-        }
-        return 0;
-    }
 
-    public  static boolean prime(int number) {
-        for (int i = 2; i < number; i++) {
-            if (number % i == 0) {
-                return false;
-            }
-        }
-        return true;
+    public static int randomNumber() {
+        Random random = new Random();
+        return random.nextInt(1, maxRandomNumber);
     }
 }
