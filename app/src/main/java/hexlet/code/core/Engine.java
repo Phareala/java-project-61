@@ -5,11 +5,11 @@ import java.util.Scanner;
 
 public class Engine {
 
-    private static final int maxRandomNumber = 100;
-    private static final int questionID = 0;
-    private static final int answerID = 1;
+    private static final int MAX_RANDOM_NUMBER = 100;
+    private static final int QUESTION_ID = 0;
+    private static final int ANSWER_ID = 1;
     private static String clientName;
-    private static final Scanner scanner = new Scanner(System.in);
+    private static final Scanner SCANNER = new Scanner(System.in);
 
     public static void greeting() {
         System.out.println("Welcome to the Brain Games!");
@@ -20,18 +20,18 @@ public class Engine {
     }
 
 
-    public static void gameInit (String gameRules, String[][] questions) {
+    public static void gameInit(String gameRules, String[][] questions) {
         greeting();
         System.out.println(gameRules);
         for (String[] question : questions) {
-            System.out.println("Question: " + question[questionID]);
+            System.out.println("Question: " + question[QUESTION_ID]);
             System.out.print("Your answer: ");
-            String answer = scanner.next();
+            String answer = SCANNER.next();
 
-            if (answer.equals(question[answerID])) {
+            if (answer.equals(question[ANSWER_ID])) {
                 System.out.println("Correct!");
             } else {
-                System.out.println(answer + " is wrong answer ;(. Correct answer was " + '\'' + question[answerID] + '\'');
+                System.out.println(answer + " is wrong answer ;(. Correct answer was " + '\'' + question[ANSWER_ID] + '\'');
                 System.out.println("Let's try again, " + clientName + '!');
                 return;
             }
@@ -42,6 +42,6 @@ public class Engine {
 
     public static int randomNumber() {
         Random random = new Random();
-        return random.nextInt(1, maxRandomNumber);
+        return random.nextInt(1, MAX_RANDOM_NUMBER);
     }
 }

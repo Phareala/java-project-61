@@ -8,28 +8,31 @@ import static hexlet.code.core.Engine.randomNumber;
 
 public class Calc {
 
-    private static final char[] operands = {'+', '-', '*'};
-    private static final String gameRules = "What is the result of the expression?";
-    private static final int questionsNumber = 3;
-    private static final int questionID = 0;
-    private static final int answerID = 1;
-
-    public static void initCalcGame() {
-        String[][] questions = genQuestions();
-        Engine.gameInit(gameRules, questions);
+    public String getGameDescription() {
+        return "What is the result of the expression?";
     }
 
     private static String[][] genQuestions() {
         Random random = new Random();
-        String[][] question = new String[questionsNumber][2];
-        for (int i = 0; i < questionsNumber; i++) {
-            var randomOperand = random.nextInt(operands.length);
-            int tempRandomNumber1 = randomNumber();
-            int tempRandomNumber2 = randomNumber();
-            var operand = operands[randomOperand];
-//            question[i][questionID] = Integer.toString(tempRandomNumber1 + operand + tempRandomNumber2);
-            question[i][questionID] = String.format("%d %s %d", tempRandomNumber1,operand, tempRandomNumber2);
-            question[i][answerID] = Integer.toString(getAnswer(tempRandomNumber1, operand, tempRandomNumber2));
+        int maxValue = 50;
+        var number1 = random.nextInt(maxValue);
+        var number2 = random.nextInt(maxValue);
+        var randomOperand = random.nextInt(operands.length);
+
+        var operand = operands[randomOperand];
+        switch (operand) {
+            case '+' -> {
+                roundAnswer = number1 + number2;
+            }
+            case '-' -> {
+                roundAnswer = number1 - number2;
+            }
+            case '*' -> {
+                roundAnswer = number1 * number2;
+            }
+            default -> {
+                System.out.println("ERROR");
+            }
         }
         return question;
     }

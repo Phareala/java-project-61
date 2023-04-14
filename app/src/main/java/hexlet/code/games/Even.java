@@ -5,22 +5,22 @@ import hexlet.code.core.Engine;
 import static hexlet.code.core.Engine.randomNumber;
 
 public class Even {
-    private static final String gameRules = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-    private static final int questionsNumber = 3;
-    private static final int questionID = 0;
-    private static final int answerID = 1;
+    private static final String GAME_RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private static final int QUESTIONS_NUMBERS = 3;
+    private static final int QUESTION_ID = 0;
+    private static final int ANSWER_ID = 1;
 
     public static void initEvenGame() {
         String[][] questions = genQuestions();
-        Engine.gameInit(gameRules, questions);
+        Engine.gameInit(GAME_RULES, questions);
     }
 
     private static String[][] genQuestions() {
-        String[][] question = new String[questionsNumber][2];
-        for (int i = 0; i < questionsNumber; i++) {
+        String[][] question = new String[QUESTIONS_NUMBERS][2];
+        for (int i = 0; i < QUESTIONS_NUMBERS; i++) {
             int tempRandomNumber = randomNumber();
-            question[i][questionID] = Integer.toString(tempRandomNumber);
-            question[i][answerID] = isEven(tempRandomNumber);
+            question[i][QUESTION_ID] = Integer.toString(tempRandomNumber);
+            question[i][ANSWER_ID] = isEven(tempRandomNumber);
         }
         return question;
     }
