@@ -23,7 +23,8 @@ public class Engine {
             if (answer.equals(question[ANSWER_ID])) {
                 System.out.println("Correct!");
             } else {
-                System.out.println(answer + " is wrong answer ;(. Correct answer was " + '\'' + question[ANSWER_ID] + '\'');
+                System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.\n",
+                        answer, question[ANSWER_ID]);
                 System.out.println("Let's try again, " + clientName + '!');
                 return;
             }

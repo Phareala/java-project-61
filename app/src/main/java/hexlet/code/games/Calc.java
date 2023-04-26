@@ -26,7 +26,7 @@ public class Calc {
             int tempRandomNumber2 = randomNumber();
             var operand = OPERANDS[randomOperand];
 //            question[i][questionID] = Integer.toString(tempRandomNumber1 + operand + tempRandomNumber2);
-            question[i][QUESTION_ID] = String.format("%d %s %d", tempRandomNumber1,operand, tempRandomNumber2);
+            question[i][QUESTION_ID] = String.format("%d %s %d", tempRandomNumber1, operand, tempRandomNumber2);
             question[i][ANSWER_ID] = Integer.toString(getAnswer(tempRandomNumber1, operand, tempRandomNumber2));
         }
         return question;
