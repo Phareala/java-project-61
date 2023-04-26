@@ -6,6 +6,7 @@ import static hexlet.code.core.Utils.randomNumber;
 
 
 public class Even {
+    public static final int EVEN = 2;
     private static final String GAME_RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     private static final int QUESTIONS_NUMBERS = 3;
     private static final int QUESTION_ID = 0;

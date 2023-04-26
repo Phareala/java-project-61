@@ -18,12 +18,12 @@ public class App {
         System.out.print("Your choice: ");
         int choice = scanner.nextInt();
         switch (choice) {
-            case (1) -> Cli.greeting();
-            case (2) -> Even.initEvenGame();
-            case (3) -> Calc.initCalcGame();
-            case (4) -> GCD.initGCDGame();
-            case (5) -> Progression.initProgressionGame();
-            case (6) -> Prime.initPrimeGame();
+            case Cli.CLI -> Cli.greeting();
+            case Even.EVEN -> Even.initEvenGame();
+            case Calc.CALC -> Calc.initCalcGame();
+            case GCD.GCD -> GCD.initGCDGame();
+            case Progression.PROGRESSION -> Progression.initProgressionGame();
+            case Prime.PRIME -> Prime.initPrimeGame();
             default -> System.out.println("Goodbye!");
 
         }

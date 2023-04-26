@@ -6,10 +6,12 @@ import static hexlet.code.core.Utils.randomNumber;
 
 public class Progression {
 
+    public static final int PROGRESSION = 5;
     private static final String GAME_RULES = "What number is missing in the progression?";
     private static final int QUESTIONS_NUMBER = 3;
     private static final int QUESTION_ID = 0;
     private static final int ANSWER_ID = 1;
+    private static final int MIN_RANGE = 5;
     private static final int MAX_RANGE = 15;
     private static final int MAX_INDEX = 10;
 
@@ -21,7 +23,7 @@ public class Progression {
     private static String[][] genQuestions() {
         String[][] question = new String[QUESTIONS_NUMBER][2];
         for (int i = 0; i < QUESTIONS_NUMBER; i++) {
-            int range = randomNumber(5, MAX_RANGE);
+            int range = randomNumber(MIN_RANGE, MAX_RANGE);
             int firstNumber = randomNumber(1, MAX_INDEX);
             int progressionIndex = randomNumber(1, MAX_INDEX);
             int hiddenNumber = randomNumber(range);

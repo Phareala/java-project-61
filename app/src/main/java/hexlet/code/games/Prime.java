@@ -5,6 +5,7 @@ import static hexlet.code.core.Utils.randomNumber;
 
 public class Prime {
 
+    public static final int PRIME = 6;
     private static final String GAME_RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     private static final int QUESTIONS_NUMBER = 3;
     private static final int QUESTION_ID = 0;

@@ -7,6 +7,7 @@ import static hexlet.code.core.Utils.randomNumber;
 
 public class Calc {
 
+    public static final int CALC = 3;
     private static final char[] OPERANDS = {'+', '-', '*'};
     private static final String GAME_RULES = "What is the result of the expression?";
     private static final int QUESTIONS_NUMBER = 3;

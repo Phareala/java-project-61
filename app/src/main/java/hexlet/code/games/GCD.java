@@ -6,6 +6,7 @@ import static hexlet.code.core.Utils.randomNumber;
 
 
 public class GCD {
+    public static final int GCD = 4;
     private static final String GAME_RULES = "Find the greatest common divisor of given numbers.";
     private static final int QUESTIONS_NUMBER = 3;
     private static final int QUESTION_ID = 0;
