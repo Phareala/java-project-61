@@ -1,7 +1,8 @@
 package hexlet.code.games;
 
 import hexlet.code.core.Engine;
-import java.util.Random;
+
+import static hexlet.code.core.Utils.randomNumber;
 
 public class Progression {
 
@@ -18,16 +19,15 @@ public class Progression {
     }
 
     private static String[][] genQuestions() {
-        Random random = new Random();
         String[][] question = new String[QUESTIONS_NUMBER][2];
         for (int i = 0; i < QUESTIONS_NUMBER; i++) {
-            int range = random.nextInt(5, MAX_RANGE);
-            int firstNumber = random.nextInt(1, MAX_INDEX);
-            int progressionIndex = random.nextInt(1, MAX_INDEX);
-            int hiddenNumber = random.nextInt(range);
+            int range = randomNumber(5, MAX_RANGE);
+            int firstNumber = randomNumber(1, MAX_INDEX);
+            int progressionIndex = randomNumber(1, MAX_INDEX);
+            int hiddenNumber = randomNumber(range);
             String[] generatedProgression = genProgression(range, progressionIndex, firstNumber);
             String answer = generatedProgression[hiddenNumber];
-            String completeProgression = hideNumber(generatedProgression, hiddenNumber);
+            String completeProgression = makeProgression(generatedProgression, hiddenNumber);
             question[i][QUESTION_ID] = String.format(completeProgression);
             question[i][ANSWER_ID] = answer;
         }
@@ -43,7 +43,7 @@ public class Progression {
         return list;
     }
 
-    private  static  String hideNumber(String[] list, int hiddenNumber) {
+    private  static  String makeProgression(String[] list, int hiddenNumber) {
         list[hiddenNumber] = "..";
         return String.join(" ", list);
     }

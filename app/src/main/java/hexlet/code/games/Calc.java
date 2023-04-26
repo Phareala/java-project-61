@@ -2,9 +2,8 @@ package hexlet.code.games;
 
 import hexlet.code.core.Engine;
 
-import java.util.Random;
+import static hexlet.code.core.Utils.randomNumber;
 
-import static hexlet.code.core.Engine.randomNumber;
 
 public class Calc {
 
@@ -20,10 +19,9 @@ public class Calc {
     }
 
     private static String[][] genQuestions() {
-        Random random = new Random();
         String[][] question = new String[QUESTIONS_NUMBER][2];
         for (int i = 0; i < QUESTIONS_NUMBER; i++) {
-            var randomOperand = random.nextInt(OPERANDS.length);
+            var randomOperand = randomNumber(OPERANDS.length);
             int tempRandomNumber1 = randomNumber();
             int tempRandomNumber2 = randomNumber();
             var operand = OPERANDS[randomOperand];

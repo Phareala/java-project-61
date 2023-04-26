@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.core.Engine;
-import static hexlet.code.core.Engine.randomNumber;
+import static hexlet.code.core.Utils.randomNumber;
 
 public class Prime {
 

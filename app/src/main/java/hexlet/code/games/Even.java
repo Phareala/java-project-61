@@ -2,7 +2,8 @@ package hexlet.code.games;
 
 import hexlet.code.core.Engine;
 
-import static hexlet.code.core.Engine.randomNumber;
+import static hexlet.code.core.Utils.randomNumber;
+
 
 public class Even {
     private static final String GAME_RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
@@ -20,12 +21,12 @@ public class Even {
         for (int i = 0; i < QUESTIONS_NUMBERS; i++) {
             int tempRandomNumber = randomNumber();
             question[i][QUESTION_ID] = Integer.toString(tempRandomNumber);
-            question[i][ANSWER_ID] = isEven(tempRandomNumber);
+            question[i][ANSWER_ID] = (isEven(tempRandomNumber)) ? "yes" : "no";
         }
         return question;
     }
 
-    private static String isEven(int number) {
-        return number % 2 == 0 ? "yes" : "no";
+    private static boolean isEven(int number) {
+        return number % 2 == 0;
     }
 }
