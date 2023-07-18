@@ -1,28 +1,25 @@
 package hexlet.code.games;
 
-import hexlet.code.core.Engine;
 
 import static hexlet.code.core.Utils.randomNumber;
+import static hexlet.code.core.Engine.*;
 
 public class Progression {
 
     public static final int PROGRESSION = 5;
     private static final String GAME_RULES = "What number is missing in the progression?";
-    private static final int QUESTIONS_NUMBER = 3;
-    private static final int QUESTION_ID = 0;
-    private static final int ANSWER_ID = 1;
     private static final int MIN_RANGE = 5;
     private static final int MAX_RANGE = 15;
     private static final int MAX_INDEX = 10;
 
     public static void initProgressionGame() {
         String[][] questions = genQuestions();
-        Engine.gameInit(GAME_RULES, questions);
+        gameInit(GAME_RULES, questions);
     }
 
     private static String[][] genQuestions() {
-        String[][] question = new String[QUESTIONS_NUMBER][2];
-        for (int i = 0; i < QUESTIONS_NUMBER; i++) {
+        String[][] question = new String[QUESTIONS_NUMBERS][2];
+        for (int i = 0; i < QUESTIONS_NUMBERS; i++) {
             int range = randomNumber(MIN_RANGE, MAX_RANGE);
             int firstNumber = randomNumber(1, MAX_INDEX);
             int progressionIndex = randomNumber(1, MAX_INDEX);

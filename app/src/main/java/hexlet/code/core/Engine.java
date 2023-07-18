@@ -4,8 +4,10 @@ import java.util.Scanner;
 
 public class Engine {
 
-    private static final int QUESTION_ID = 0;
-    private static final int ANSWER_ID = 1;
+    public static final int QUESTION_ID = 0;
+    public static final int ANSWER_ID = 1;
+    public static final int QUESTIONS_NUMBERS = 3;
+
     private static final Scanner SCANNER = new Scanner(System.in);
 
     public static void gameInit(String gameRules, String[][] questions) {
