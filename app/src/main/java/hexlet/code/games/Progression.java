@@ -2,7 +2,10 @@ package hexlet.code.games;
 
 
 import static hexlet.code.core.Utils.randomNumber;
-import static hexlet.code.core.Engine.*;
+import static hexlet.code.core.Engine.ANSWER_ID;
+import static hexlet.code.core.Engine.QUESTION_ID;
+import static hexlet.code.core.Engine.QUESTIONS_NUMBERS;
+import static hexlet.code.core.Engine.gameInit;
 
 public class Progression {
 

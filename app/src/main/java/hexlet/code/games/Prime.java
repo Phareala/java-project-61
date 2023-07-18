@@ -1,8 +1,11 @@
 package hexlet.code.games;
 
 
+import static hexlet.code.core.Engine.ANSWER_ID;
+import static hexlet.code.core.Engine.QUESTION_ID;
+import static hexlet.code.core.Engine.QUESTIONS_NUMBERS;
+import static hexlet.code.core.Engine.gameInit;
 import static hexlet.code.core.Utils.randomNumber;
-import static hexlet.code.core.Engine.*;
 
 public class Prime {
 
