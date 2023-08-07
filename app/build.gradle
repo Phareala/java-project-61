@@ -8,9 +8,9 @@ run {
     standardInput = System.in
 }
 
-//compileJava {
-//    options.release = 17
-//}
+compileJava {
+    options.release = 20
+}
 
 group 'hexlet.code'
 version '1.0-SNAPSHOT'
